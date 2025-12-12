@@ -33,3 +33,23 @@ def get_mask_account(account_number: int) -> str:
     account_str = str(account_number)
     last_four = account_str[-4:]
     return f"**{last_four}"
+
+
+def mask_email(email: str) -> str:
+    """
+    Mask email so that only the first 2 characters of the name are visible.
+
+    Examples:
+    nikol@gmail.com -> ni***@gmail.com
+    ab@mail.ru -> ab@mail.ru
+    a@mail.ru -> a@mail.ru
+    """
+    name, domain = email.split("@")
+
+    # Если имя слишком короткое — ничего не меняем
+    if len(name) <= 2:
+        return email
+
+    masked_name = name[:2] + "*" * (len(name) - 2)
+
+    return masked_name + "@" + domain
