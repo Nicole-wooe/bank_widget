@@ -24,3 +24,6 @@ lint = [
     "isort (>=7.0.0,<8.0.0)",
     "mypy (>=1.18.2,<2.0.0)"
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

@@ -3,16 +3,9 @@ from bank_widget.masks import mask_email
 
 
 def main() -> None:
-    # Проверка маскировки карты
-    print(mask_account_card("Visa Platinum 7000792283946897"))
-
-    # Проверка маскировки банковского счёта
-    print(mask_account_card("Счет 40817810009910004312"))
-
-    # Проверка даты
+    print(mask_account_card("Visa Platinum 70007922839466897"))
+    print(mask_account_card("Счет 40817810099910004312"))
     print(get_date("2024-03-11T02:26:18.671407"))
-
-    # Проверка email
     print(mask_email("nikol@gmail.com"))
 
 
