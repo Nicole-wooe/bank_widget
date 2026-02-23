@@ -37,3 +37,8 @@ pythonpath = ["src"]
 omit = [
   "src/bank_widget/main.py",
 ]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+src_paths = ["src", "tests"]
