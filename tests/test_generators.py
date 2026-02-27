@@ -89,4 +89,5 @@ def test_card_number_generator_range(start, stop, expected):
     ],
 )
 def test_card_number_generator_invalid(start, stop):
-    assert list(card_number_generator(start, stop)) == []
+    with pytest.raises(ValueError):
+        list(card_number_generator(start, stop))

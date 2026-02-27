@@ -24,7 +24,7 @@ def transaction_descriptions(
 def card_number_generator(start: int, stop: int) -> Iterator[str]:
     """Generate card numbers in 'XXXX XXXX XXXX XXXX' format for range [start, stop]."""
     if start < 1 or stop > 9999_9999_9999_9999 or start > stop:
-        return
+        raise ValueError("Invalid range")
 
     for number in range(start, stop + 1):
         s = f"{number:016d}"
