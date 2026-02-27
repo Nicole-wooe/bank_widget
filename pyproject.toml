@@ -27,3 +27,13 @@ lint = [
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+src_paths = ["src", "tests"]
+
+[tool.coverage.run]
+omit = [
+    "src/bank_widget/main.py",
+]
