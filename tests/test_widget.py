@@ -1,5 +1,13 @@
-from bank_widget.widget import get_date, mask_account_card
-from bank_widget.masks import mask_email
+from src.bank_widget.main import get_mask_account as main_get_mask_account
+from src.bank_widget.main import \
+    get_mask_card_number as main_get_mask_card_number
+from src.bank_widget.main import main
+from src.bank_widget.masks import mask_email
+from src.bank_widget.widget import get_date
+from src.bank_widget.widget import get_mask_account as widget_get_mask_account
+from src.bank_widget.widget import \
+    get_mask_card_number as widget_get_mask_card_number
+from src.bank_widget.widget import mask_account_card
 
 
 def test_mask_account_card_for_card() -> None:
@@ -19,3 +27,31 @@ def test_get_date() -> None:
 
 def test_mask_email() -> None:
     assert mask_email("nikol@gmail.com") == "ni***@gmail.com"
+
+
+def test_widget_extra():
+    # тестируем widget.py
+    assert widget_get_mask_card_number(1234567812345678)
+    assert widget_get_mask_account(12345678)
+
+
+def test_main_module_functions(capsys):
+    # тестируем main.py функции
+    assert main_get_mask_card_number(1234567812345678) == "1234 56** **** 5678"
+    assert main_get_mask_account(12345678) == "**5678"
+
+    main()
+    captured = capsys.readouterr()
+    output = captured.out
+
+    assert "Visa" in output
+    assert "gmail" in output
+
+
+def test_main_output(capsys):
+    main()
+    captured = capsys.readouterr()
+    output = captured.out
+
+    assert "Visa" in output
+    assert "gmail" in output
