@@ -1,0 +1,8 @@
+2026-04-24 17:21:22,423 - bank_widget.utils - INFO - Masking account/card string: Visa Platinum 70007922839466897
+2026-04-24 17:21:22,424 - bank_widget.utils - INFO - Account/card string masked successfully
+2026-04-24 17:21:22,424 - bank_widget.utils - INFO - Masking account/card string: Счет 40817810099910004312
+2026-04-24 17:21:22,425 - bank_widget.utils - INFO - Account/card string masked successfully
+2026-04-24 17:21:22,425 - bank_widget.utils - INFO - Formatting date: 2024-03-11T02:26:18.671407
+2026-04-24 17:21:22,425 - bank_widget.utils - INFO - Date formatted successfully
+2026-04-24 17:21:22,426 - bank_widget.utils - INFO - Masking email: nikol@gmail.com
+2026-04-24 17:21:22,426 - bank_widget.utils - INFO - Email masked successfully
