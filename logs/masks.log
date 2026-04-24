@@ -1,0 +1,4 @@
+2026-04-24 17:21:22,424 - bank_widget.masks - INFO - Masking card number: 70007922839466897
+2026-04-24 17:21:22,424 - bank_widget.masks - INFO - Card number masked successfully
+2026-04-24 17:21:22,425 - bank_widget.masks - INFO - Masking account number: 40817810099910004312
+2026-04-24 17:21:22,425 - bank_widget.masks - INFO - Account number masked successfully

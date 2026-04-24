@@ -1,5 +1,20 @@
-# src/masks.py
+import logging
 
+# src/masks.py
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+file_handler = logging.FileHandler("logs/masks.log", mode="w", encoding="utf-8")
+file_handler.setLevel(logging.DEBUG)
+
+file_formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
+file_handler.setFormatter(file_formatter)
+
+if not logger.handlers:
+    logger.addHandler(file_handler)
 
 def get_mask_card_number(card_number: int) -> str:
     """
@@ -13,10 +28,14 @@ def get_mask_card_number(card_number: int) -> str:
     """
     card_str = str(card_number)
 
+    logger.info(f"Masking card number: {card_number}")
+
     # Предполагаем, что длина >= 10, как в примере (обычное число цифр карты — 16).
     first_four = card_str[:4]
     next_two = card_str[4:6]
     last_four = card_str[-4:]
+
+    logger.info("Card number masked successfully")
 
     return f"{first_four} {next_two}** **** {last_four}"
 
@@ -31,7 +50,9 @@ def get_mask_account(account_number: int) -> str:
     :return: Masked account number string.
     """
     account_str = str(account_number)
+    logger.info(f"Masking account number: {account_number}")
     last_four = account_str[-4:]
+    logger.info("Account number masked successfully")
     return f"**{last_four}"
 
 
@@ -44,12 +65,18 @@ def mask_email(email: str) -> str:
     ab@mail.ru -> ab@mail.ru
     a@mail.ru -> a@mail.ru
     """
-    name, domain = email.split("@")
+    logger.info(f"Masking email: {email}")
 
+    try:
+        name, domain = email.split("@")
+    except ValueError:
+        logger.error("Invalid email format")
+        raise
     # Если имя слишком короткое — ничего не меняем
     if len(name) <= 2:
         return email
 
     masked_name = name[:2] + "*" * (len(name) - 2)
 
+    logger.info("Email masked successfully")
     return masked_name + "@" + domain
