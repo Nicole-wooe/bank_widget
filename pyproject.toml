@@ -8,6 +8,8 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "pandas (>=3.0.2,<4.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)"
 ]
 
 [tool.poetry]
@@ -27,3 +29,8 @@ lint = [
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.coverage.run]
+omit = [
+    "src/bank_widget/main.py"
+]
