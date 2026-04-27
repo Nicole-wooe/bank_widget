@@ -1,5 +1,5 @@
-from bank_widget.widget import get_date, mask_account_card
 from bank_widget.masks import mask_email
+from bank_widget.widget import get_date, mask_account_card
 
 
 def test_mask_account_card_for_card() -> None:
