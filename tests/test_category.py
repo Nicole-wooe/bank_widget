@@ -10,7 +10,8 @@ def test_category_init():
 
     assert category.name == "Техника"
     assert category.description == "Электроника"
-    assert len(category.products) == 2
+    assert "Телефон" in category.products
+    assert "Ноутбук" in category.products
 
 
 def test_counts():
@@ -24,3 +25,4 @@ def test_counts():
 
     assert Category.category_count == 1
     assert Category.product_count == 2
+
