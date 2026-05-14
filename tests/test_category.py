@@ -26,6 +26,7 @@ def test_counts():
     assert Category.category_count == 1
     assert Category.product_count == 2
 
+
 def test_category_str():
     p1 = Product("Телефон", "Смартфон", 1000.0, 5)
     p2 = Product("Ноутбук", "Мощный", 2000.0, 3)
