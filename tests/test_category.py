@@ -25,3 +25,11 @@ def test_counts():
 
     assert Category.category_count == 1
     assert Category.product_count == 2
+
+def test_category_str():
+    p1 = Product("Телефон", "Смартфон", 1000.0, 5)
+    p2 = Product("Ноутбук", "Мощный", 2000.0, 3)
+
+    category = Category("Техника", "Электроника", [p1, p2])
+
+    assert str(category) == "Техника, количество продуктов: 8 шт."
