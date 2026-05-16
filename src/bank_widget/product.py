@@ -1,23 +1,29 @@
 class Product:
-    def __init__(self, name: str, description: str, price: float, quantity: int):
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        quantity: int
+    ) -> None:
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
 
     @property
-    def price(self):
+    def price(self) -> float:
         return self.__price
 
     @price.setter
-    def price(self, value):
+    def price(self, value: float) -> None:
         if value > 0:
             self.__price = value
         else:
             print("Цена не должна быть нулевой или отрицательной")
 
     @classmethod
-    def new_product(cls, data: dict):
+    def new_product(cls, data: dict) -> "Product":
         return cls(
             data["name"],
             data["description"],
@@ -46,7 +52,7 @@ class Smartphone(Product):
         model: str,
         memory: int,
         color: str
-    ):
+    ) -> None:
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
@@ -64,7 +70,7 @@ class LawnGrass(Product):
         country: str,
         germination_period: str,
         color: str
-    ):
+    ) -> None:
         super().__init__(name, description, price, quantity)
         self.country = country
         self.germination_period = germination_period
