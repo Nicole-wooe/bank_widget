@@ -1,6 +1,11 @@
 import pytest
 
-from src.bank_widget.product import Product, Smartphone, LawnGrass
+from src.bank_widget.product import (
+    BaseProduct,
+    LawnGrass,
+    Product,
+    Smartphone
+)
 
 
 def test_product_init():
@@ -116,3 +121,18 @@ def test_add_different_classes():
 
     with pytest.raises(TypeError):
         smartphone + grass
+
+
+def test_product_is_base_product():
+    product = Product("Товар", "Описание", 100.0, 5)
+
+    assert isinstance(product, BaseProduct)
+
+
+def test_print_mixin(capsys):
+    Product("Товар", "Описание", 100.0, 5)
+
+    captured = capsys.readouterr()
+
+    assert "Product" in captured.out
+    assert "Товар" in captured.out
