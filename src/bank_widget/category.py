@@ -36,6 +36,17 @@ class Category:
 
         return result
 
+    def middle_price(self) -> float:
+        try:
+            total_price = 0
+
+            for product in self.__products:
+                total_price += product.price
+
+            return total_price / len(self.__products)
+        except ZeroDivisionError:
+            return 0
+
     def __str__(self) -> str:
         total_quantity = 0
 

@@ -136,3 +136,8 @@ def test_print_mixin(capsys):
 
     assert "Product" in captured.out
     assert "Товар" in captured.out
+
+
+def test_zero_quantity():
+    with pytest.raises(ValueError):
+        Product("Пустой товар", "Описание", 100.0, 0)

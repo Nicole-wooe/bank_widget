@@ -96,3 +96,22 @@ def test_add_wrong_product():
 
     with pytest.raises(TypeError):
         category.add_product("не продукт")
+
+
+def test_middle_price():
+    product_1 = Product("Samsung", "Описание", 100000.0, 5)
+    product_2 = Product("iPhone", "Описание", 120000.0, 3)
+
+    category = Category(
+        "Телефоны",
+        "Описание",
+        [product_1, product_2]
+    )
+
+    assert category.middle_price() == 110000.0
+
+
+def test_middle_price_empty_category():
+    category = Category("Пусто", "Нет товаров", [])
+
+    assert category.middle_price() == 0
